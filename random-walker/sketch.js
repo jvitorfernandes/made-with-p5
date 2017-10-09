@@ -1,6 +1,6 @@
-function Walker(){
-	this.y = height/2;
-	this.x = width/2;
+function Walker(x, y){
+	this.y = y;
+	this.x = x;
 	this.size = 5;
 
 	this.randomize = function(){
@@ -54,14 +54,19 @@ var simulationStarted = false;
 function setup() {
   createCanvas(800, 600).parent('canvasContainer');
   background(0);
-  james = new Walker();
+
+  var x = random(width);
+  var y = random(height);
+  james = new Walker(x, y);
 }
 
 function draw() {
 
 	// if(simulationStarted){ //bug?
+	// if(frameCount % 60 == 0){
 		james.cleanStroke();
 		james.update();
+	// }
 	// }
 	// else{
 	// 	fill(255);
